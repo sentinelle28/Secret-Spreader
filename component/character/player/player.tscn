@@ -164,3 +164,8 @@ frame_progress = 0.0141085
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zone_of_influence"]
 shape = SubResource("CircleShape2D_pq12x")
 debug_color = Color(0.969552, 0, 0.460607, 0.42)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[connection signal="body_entered" from="zone_of_influence" to="." method="_on_zone_of_influence_body_entered"]

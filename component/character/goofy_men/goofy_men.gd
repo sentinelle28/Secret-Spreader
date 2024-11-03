@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
+class_name GoofyMen
+var do_know_the_secret:bool = false
 var target:Vector2
-var radius_to_target:int = 100
+var radius_to_target:int = 200
 var can_walk:bool = true
 var speed:int = 100
 
@@ -23,6 +25,7 @@ func _choose_new_target()->void:
 	var new_angle = randf_range(0,2*PI)
 	$RayCast2D.rotate(new_angle)
 	target = $RayCast2D.get_collision_point()
+	can_walk = true
 	
 func _check_distance()->void:
 	if global_position.distance_to(target) < radius_to_target:
@@ -43,3 +46,9 @@ func _change_sprite(direction:Vector2)->void:
 		$AnimatedSprite2D.flip_h = true
 	elif direction.x > 0:
 		$AnimatedSprite2D.flip_h = false
+
+func _give_point()->void:
+	if not do_know_the_secret:
+		self_modulate = Color.hex(0xffffff20)
+		
+		#give points

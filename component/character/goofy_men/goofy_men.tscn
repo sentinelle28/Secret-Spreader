@@ -89,6 +89,7 @@ animations = [{
 }]
 
 [node name="goofy_men" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_7ftx3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
