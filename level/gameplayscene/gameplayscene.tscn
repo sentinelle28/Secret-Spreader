@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr77c8ps4wlmp"]
+
+[ext_resource type="PackedScene" uid="uid://dfkqwanr1xlqn" path="res://component/character/player/player.tscn" id="1_wu2xu"]
+[ext_resource type="PackedScene" uid="uid://4qyey1cnek1f" path="res://component/character/goofy_men/goofy_men.tscn" id="2_mhqle"]
+
+[node name="gameplayscene" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_wu2xu")]
+position = Vector2(523, 366)
+
+[node name="goofy_men" parent="." instance=ExtResource("2_mhqle")]
+position = Vector2(354, 391)

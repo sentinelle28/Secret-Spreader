@@ -1,0 +1,108 @@
+[gd_scene load_steps=15 format=3 uid="uid://4qyey1cnek1f"]
+
+[ext_resource type="Texture2D" uid="uid://1q8ekttvvdvh" path="res://asset/character/sheets/DinoSprites - doux.png" id="1_2juwh"]
+[ext_resource type="Script" path="res://component/character/goofy_men/goofy_men.gd" id="1_7ftx3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p0qol"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imuca"]
+atlas = ExtResource("1_2juwh")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omdtm"]
+atlas = ExtResource("1_2juwh")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvi8j"]
+atlas = ExtResource("1_2juwh")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ew58p"]
+atlas = ExtResource("1_2juwh")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4omp"]
+atlas = ExtResource("1_2juwh")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohph6"]
+atlas = ExtResource("1_2juwh")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbn66"]
+atlas = ExtResource("1_2juwh")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tttv"]
+atlas = ExtResource("1_2juwh")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bj7u"]
+atlas = ExtResource("1_2juwh")
+region = Rect2(192, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgj1q"]
+atlas = ExtResource("1_2juwh")
+region = Rect2(216, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vwi2y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imuca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omdtm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvi8j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ew58p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4omp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohph6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbn66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tttv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bj7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgj1q")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="goofy_men" type="CharacterBody2D"]
+script = ExtResource("1_7ftx3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_p0qol")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 1000)
+collision_mask = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vwi2y")
+animation = &"walk"
+autoplay = "idle"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
