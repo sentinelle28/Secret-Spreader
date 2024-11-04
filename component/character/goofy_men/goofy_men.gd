@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_move()
 	move_and_slide()
 
@@ -26,16 +26,18 @@ func _choose_new_target()->void:
 	$RayCast2D.rotate(new_angle)
 	target = $RayCast2D.get_collision_point()
 	can_walk = true
+	$NavigationAgent2D.target_position = target
 	
 func _check_distance()->void:
 	if global_position.distance_to(target) < radius_to_target:
 		$Timer.start(randf_range(3,10))
+		velocity = Vector2.ZERO
 		can_walk = false
 		
 func _move()->void:
 	if can_walk:
 		$AnimatedSprite2D.play("walk")
-		var direction:Vector2 = global_position.direction_to(target)
+		var direction:Vector2 = global_position.direction_to($NavigationAgent2D.get_next_path_position())
 		velocity = direction*speed
 		_change_sprite(direction)
 	else:
@@ -52,3 +54,9 @@ func _give_point()->void:
 		self_modulate = Color.hex(0xffffff20)
 		
 		#give points
+
+
+func _on_navigation_agent_2d_navigation_finished() -> void:
+	$Timer.start(randf_range(3,10))
+	velocity = Vector2.ZERO
+	can_walk = false

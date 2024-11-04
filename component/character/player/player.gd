@@ -4,7 +4,7 @@ class_name Player
 @export var base_speed:int = 300
 @export var max_stamina:int = 100
 @export var stamina_regen:float = 1.2
-
+@export var area_of_influence:int = 12
 
 
 @onready var stamina:int = max_stamina
@@ -12,17 +12,28 @@ class_name Player
 var is_running:bool = false
 var stamina_mult:float = 1
 
+#animation for the circle
+var offset:float = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
+func _set_area_of_influence(radius:int)->void:
+	$zone_of_influence/CollisionShape2D.shape.radius = radius
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	offset += delta
+	queue_redraw()
 	_regen_stamina()
 	_move()
 	move_and_slide()
 	
+func _draw() -> void:
+	for i in range(0,361,15):
+		draw_arc(Vector2.ZERO,float(area_of_influence),deg_to_rad(i*15)+offset,deg_to_rad((i+1)*15)+offset,100,Color(0, 1, 1, 0.318),1)
+
 
 func _move()->void:
 	var direction:Vector2 = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
