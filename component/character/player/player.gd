@@ -15,20 +15,28 @@ var stamina_mult:float = 1
 #animation for the circle
 var offset:float = 0
 
+var can_move:bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	base_speed = PlayerStats.base_speed
+	max_stamina = PlayerStats.max_stamina
+	stamina_regen = PlayerStats.stamina_regen
+	area_of_influence = PlayerStats.area_of_influence
+	stamina_mult = PlayerStats.stamina_mult
+	
 
 func _set_area_of_influence(radius:int)->void:
 	$zone_of_influence/CollisionShape2D.shape.radius = radius
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	offset += delta
-	queue_redraw()
-	_regen_stamina()
-	_move()
-	move_and_slide()
+	if can_move:
+		offset += delta
+		queue_redraw()
+		_regen_stamina()
+		_move()
+		move_and_slide()
 	
 func _draw() -> void:
 	for i in range(0,361,15):

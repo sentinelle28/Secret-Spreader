@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 class_name GoofyMen
+@export var score_given:int = 10
 var do_know_the_secret:bool = false
 var target:Vector2
 var radius_to_target:int = 200
@@ -52,6 +53,8 @@ func _change_sprite(direction:Vector2)->void:
 func _give_point()->void:
 	if not do_know_the_secret:
 		self_modulate = Color.hex(0xffffff20)
+		
+		Score._add_coins(score_given)
 		
 		#give points
 

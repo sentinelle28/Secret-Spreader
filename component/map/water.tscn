@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://h307i0guq6nn"]
+
+[ext_resource type="Texture2D" uid="uid://bh580ll62g7r6" path="res://asset/Tilesets/Water.png" id="1_wxa8q"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w0ycw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pry5b"]
+texture = ExtResource("1_wxa8q")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_7rupl"]
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 3
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_w0ycw")
+sources/0 = SubResource("TileSetAtlasSource_pry5b")
+
+[node name="water" type="TileMapLayer"]
+tile_set = SubResource("TileSet_7rupl")

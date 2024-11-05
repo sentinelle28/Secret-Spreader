@@ -14,6 +14,11 @@ config/name="SecretSpreader"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Score="*res://autoload/score/Score.gd"
+PlayerStats="*res://autoload/player_stats/Player_Stats.gd"
+
 [input]
 
 run={
