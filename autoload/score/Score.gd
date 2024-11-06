@@ -42,3 +42,6 @@ func _end_round(time_left:float)->void:
 
 func get_point()->int:
 	return current_score
+
+func _pay(price:int)->void:
+	spread_coins -= price
