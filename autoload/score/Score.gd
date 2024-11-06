@@ -39,3 +39,6 @@ func _end_round(time_left:float)->void:
 		SceneTransition._change_scene("res://component/menu/shop.tscn")
 	else:
 		SceneTransition._change_scene("res://component/menu/death_screen.tscn")
+
+func get_point()->int:
+	return current_score
