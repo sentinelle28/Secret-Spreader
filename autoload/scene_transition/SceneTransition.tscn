@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://boseko8ruc270"]
+
+[ext_resource type="Script" path="res://autoload/scene_transition/scene_transition.gd" id="1_7emyd"]
+
+[sub_resource type="Animation" id="Animation_u1cnd"]
+resource_name = "Transition"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-48, -656), Vector2(-48, 656)]
+}
+
+[sub_resource type="Animation" id="Animation_52ntp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-48, -656)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aq8ng"]
+_data = {
+"RESET": SubResource("Animation_52ntp"),
+"Transition": SubResource("Animation_u1cnd")
+}
+
+[node name="SceneTransition" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_7emyd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -48.0
+offset_top = -656.0
+offset_right = 1176.0
+offset_bottom = -8.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_aq8ng")
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

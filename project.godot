@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="SecretSpreader"
+run/main_scene="res://level/mainmenu/mainmenu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -18,6 +19,7 @@ config/icon="res://icon.svg"
 
 Score="*res://autoload/score/Score.gd"
 PlayerStats="*res://autoload/player_stats/Player_Stats.gd"
+SceneTransition="*res://autoload/scene_transition/SceneTransition.tscn"
 
 [input]
 

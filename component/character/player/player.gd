@@ -19,6 +19,9 @@ var can_move:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_init()
+	
+func _init()->void:
 	base_speed = PlayerStats.base_speed
 	max_stamina = PlayerStats.max_stamina
 	stamina_regen = PlayerStats.stamina_regen

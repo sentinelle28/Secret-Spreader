@@ -36,6 +36,6 @@ func _reset()->void:
 
 func _end_round(time_left:float)->void:
 	if can_pass(time_left):
-		pass #shop
+		SceneTransition._change_scene("res://component/menu/shop.tscn")
 	else:
-		pass #fail menu
+		SceneTransition._change_scene("res://component/menu/death_screen.tscn")

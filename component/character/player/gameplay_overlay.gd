@@ -3,7 +3,11 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	_start()
+	
+func _start()->void:
+	$AnimationPlayer.play("start")
+	$start_timer.start(3)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
