@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Score="*res://autoload/score/Score.gd"
 PlayerStats="*res://autoload/player_stats/Player_Stats.gd"
 SceneTransition="*res://autoload/scene_transition/SceneTransition.tscn"
+Upgrade="*res://autoload/upgrade/upgrade.gd"
 
 [input]
 

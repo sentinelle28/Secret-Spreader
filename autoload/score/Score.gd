@@ -33,6 +33,12 @@ func _reset()->void:
 	score_to_beat = 100
 	spread_coins = 0
 	current_level = 1
+	
+
+func _reset_round()->void:
+	_reset()
+	PlayerStats._reset()
+	Upgrade._reset()
 
 func _end_round(time_left:float)->void:
 	if can_pass(time_left):

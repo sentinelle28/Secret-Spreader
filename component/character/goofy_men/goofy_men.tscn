@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://4qyey1cnek1f"]
+[gd_scene load_steps=16 format=3 uid="uid://4qyey1cnek1f"]
 
 [ext_resource type="Texture2D" uid="uid://1q8ekttvvdvh" path="res://asset/character/sheets/DinoSprites - doux.png" id="1_2juwh"]
 [ext_resource type="Script" path="res://component/character/goofy_men/goofy_men.gd" id="1_7ftx3"]
+[ext_resource type="PackedScene" uid="uid://ce6f6d51353kr" path="res://component/other/prefab/score_income_prefab.tscn" id="2_10kxf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p0qol"]
 
@@ -91,6 +92,8 @@ animations = [{
 [node name="goofy_men" type="CharacterBody2D"]
 collision_mask = 2
 script = ExtResource("1_7ftx3")
+score_given = null
+label_prefab = ExtResource("2_10kxf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_p0qol")

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 class_name GoofyMen
 @export var score_given:int = 10
+@export var label_prefab:PackedScene
 var do_know_the_secret:bool = false
 var target:Vector2
 var radius_to_target:int = 200
@@ -56,6 +57,9 @@ func _give_point()->void:
 		
 		Score._add_coins(score_given)
 		
+		var new_child:ScoreIncomePrefab = label_prefab.instantiate()
+		add_child(new_child)
+		new_child._set_score(score_given)
 		#give points
 
 

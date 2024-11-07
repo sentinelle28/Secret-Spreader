@@ -9,6 +9,8 @@ extends TextureButton
 @export var is_bool:bool = false
 @export var power_increase:float = 10
 
+func _ready() -> void:
+	current_upgrade_level = Upgrade.get_upgrade(name)
 
 func _on_pressed() -> void:
 	if current_upgrade_level + 1 <= max_upgrade:
@@ -18,11 +20,16 @@ func _on_pressed() -> void:
 		
 
 func _upgrade()->void:
-	current_upgrade_level += 1
+	_add_point()
 	if is_bool:
 		_activate_new_function()
 	else:
 		_add_power()
+	
+func _add_point()->void:
+	current_upgrade_level += 1
+	Upgrade._set_upgrade(name,current_upgrade_level)
+	
 	
 func _activate_new_function()->void:
 	PlayerStats._custom_set(related_var,true)
