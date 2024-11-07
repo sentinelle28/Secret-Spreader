@@ -17,6 +17,20 @@ func _on_pressed() -> void:
 		if Score.spread_coins - cost >= 0:
 			Score._pay(cost)
 			_upgrade()
+			_spawn_indicator()
+			
+			
+
+func _spawn_indicator()->void:
+	var r:String = ""
+	for i:String in related_var.split("_",false,-1):
+		r += i
+				
+	var child:UpgradePrefab = load("res://component/other/prefab/upgrade_prefab.tscn").instantiate()
+	add_child(child)
+	child._set_score("+ " + r)
+		
+		
 		
 
 func _upgrade()->void:

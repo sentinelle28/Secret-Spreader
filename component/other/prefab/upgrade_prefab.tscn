@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo1l6w1ajr4eh"]
+
+[ext_resource type="PackedScene" uid="uid://ce6f6d51353kr" path="res://component/other/prefab/score_income_prefab.tscn" id="1_3gx5s"]
+[ext_resource type="Script" path="res://component/other/prefab/upgrade_prefab.gd" id="2_e20l2"]
+
+[node name="Upgrade_prefab" instance=ExtResource("1_3gx5s")]
+script = ExtResource("2_e20l2")
