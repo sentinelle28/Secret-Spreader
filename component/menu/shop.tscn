@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://ugroy1anpfix"]
 
 [ext_resource type="Script" path="res://component/menu/shop.gd" id="1_2jo55"]
-[ext_resource type="PackedScene" uid="uid://b5ijbeu044t8w" path="res://component/upgrade/template/upgrade.tscn" id="1_f6814"]
 [ext_resource type="Texture2D" uid="uid://dldr3doapms74" path="res://asset/upgrade/banana_upgrade.png" id="2_lv80v"]
+[ext_resource type="PackedScene" uid="uid://7r85hibg34nr" path="res://component/upgrade/template/upgrade_many.tscn" id="3_nwk4m"]
 [ext_resource type="Texture2D" uid="uid://dofvdgx6re8ox" path="res://asset/score_related/spreadcoins.png" id="4_ypvh4"]
 
 [node name="shop" type="Control"]
@@ -13,15 +13,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2jo55")
-
-[node name="Upgrade" parent="." instance=ExtResource("1_f6814")]
-layout_mode = 0
-offset_left = 174.0
-offset_top = 117.0
-offset_right = 238.0
-offset_bottom = 181.0
-texture_normal = ExtResource("2_lv80v")
-max_upgrade = 5
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -45,5 +36,15 @@ text = "ddd"
 
 [node name="Sprite2D" type="Sprite2D" parent="HBoxContainer"]
 texture = ExtResource("4_ypvh4")
+
+[node name="Upgrade" parent="." instance=ExtResource("3_nwk4m")]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 154.0
+offset_right = 194.0
+offset_bottom = 194.0
+texture_normal = ExtResource("2_lv80v")
+related_var = Array[String](["base_speed"])
+power_increase = Array[int]([10])
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -5,4 +5,4 @@
 
 [node name="Upgrade" instance=ExtResource("1_ihec3")]
 script = ExtResource("2_3giqu")
-is_bool = null
+related_var = "base_speed"

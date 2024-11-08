@@ -6,10 +6,6 @@
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_7cc2e")
-cost = null
-max_upgrade = null
-current_upgrade_level = null
-related_var = null
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 layout_mode = 0
