@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0dtyv8xvtp7n"]
+
+[ext_resource type="PackedScene" uid="uid://b5ijbeu044t8w" path="res://component/upgrade/template/upgrade.tscn" id="1_ihec3"]
+[ext_resource type="Script" path="res://component/upgrade/template/upgrade_bool.gd" id="2_3giqu"]
+
+[node name="Upgrade" instance=ExtResource("1_ihec3")]
+script = ExtResource("2_3giqu")
+is_bool = null
