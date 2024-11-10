@@ -12,9 +12,17 @@ func _start()->void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	$point_shower.text = str(Score.get_point()) + "/" + str(Score.get_next_score_to_beat(Score.current_level))
+	_calibrate_bar()
 	
 	$timer_label.text = "0:"+str(int($gameplay_timer.time_left))
+
+func _calibrate_bar()->void:
+	$point_shower.max_value = Score.get_next_score_to_beat(Score.current_level)
+	$point_shower.value = Score.get_point()
+	if Score.can_pass(0) and not $PointS_animator.is_playing():
+		$PointS_animator.play("glow")
+	else:
+		$point_shower.tint_progress = Color.BLACK
 
 
 func _on_gameplay_timer_timeout() -> void:

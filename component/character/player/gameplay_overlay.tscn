@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfu715ee5yor1"]
+[gd_scene load_steps=9 format=3 uid="uid://cfu715ee5yor1"]
 
 [ext_resource type="Script" path="res://component/character/player/gameplay_overlay.gd" id="1_61o8l"]
+[ext_resource type="Texture2D" uid="uid://hwm2xxscys8w" path="res://asset/score_related/score_progress_bar.png" id="2_uelj3"]
 
 [sub_resource type="Animation" id="Animation_67356"]
 length = 0.001
@@ -87,6 +88,44 @@ _data = {
 "start": SubResource("Animation_hfs1w")
 }
 
+[sub_resource type="Animation" id="Animation_6xtox"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("point_shower:tint_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vyber"]
+resource_name = "glow"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("point_shower:tint_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 1, 1, 1), Color(1, 0, 1, 1), Color(1, 1, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tesa2"]
+_data = {
+"RESET": SubResource("Animation_6xtox"),
+"glow": SubResource("Animation_vyber")
+}
+
 [node name="gameplay_overlay" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -122,15 +161,6 @@ horizontal_alignment = 1
 wait_time = 3.0
 one_shot = true
 
-[node name="point_shower" type="Label" parent="."]
-visible = false
-layout_mode = 0
-offset_left = -1.0
-offset_top = 58.0
-offset_right = 39.0
-offset_bottom = 81.0
-text = "dddd"
-
 [node name="timer_label" type="Label" parent="."]
 visible = false
 layout_mode = 0
@@ -139,6 +169,22 @@ offset_top = 2.0
 offset_right = 311.0
 offset_bottom = 25.0
 text = "aaa"
+
+[node name="point_shower" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 34.0
+offset_right = 63.0
+offset_bottom = 98.0
+value = 100.0
+allow_greater = true
+texture_progress = ExtResource("2_uelj3")
+tint_progress = Color(0, 0, 0, 1)
+
+[node name="PointS_animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tesa2")
+}
 
 [connection signal="timeout" from="gameplay_timer" to="." method="_on_gameplay_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

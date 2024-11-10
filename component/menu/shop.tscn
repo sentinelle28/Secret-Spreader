@@ -23,18 +23,17 @@ offset_bottom = 593.0
 theme_override_font_sizes/font_size = 30
 text = "Next wave"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 34.0
-offset_top = 31.0
-offset_right = 74.0
-offset_bottom = 71.0
+[node name="HBoxContainer" type="Node" parent="."]
 
 [node name="money_label" type="Label" parent="HBoxContainer"]
-layout_mode = 2
+offset_left = 80.0
+offset_top = 24.0
+offset_right = 110.0
+offset_bottom = 47.0
 text = "ddd"
 
 [node name="Sprite2D" type="Sprite2D" parent="HBoxContainer"]
+position = Vector2(33, 32)
 texture = ExtResource("4_ypvh4")
 
 [node name="Banana_upgrade" parent="." instance=ExtResource("3_nwk4m")]
