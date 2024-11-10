@@ -37,7 +37,7 @@ text = "ddd"
 [node name="Sprite2D" type="Sprite2D" parent="HBoxContainer"]
 texture = ExtResource("4_ypvh4")
 
-[node name="Upgrade" parent="." instance=ExtResource("3_nwk4m")]
+[node name="Banana_upgrade" parent="." instance=ExtResource("3_nwk4m")]
 layout_mode = 0
 offset_left = 154.0
 offset_top = 154.0

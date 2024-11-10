@@ -11,7 +11,8 @@ class_name UpgradeBase
 
 
 func _ready() -> void:
-	current_upgrade_level = Upgrade.get_upgrade(name)
+	_init_upgrade()
+	
 
 func _on_pressed() -> void:
 	if current_upgrade_level + 1 <= max_upgrade:
@@ -25,6 +26,13 @@ func _on_pressed() -> void:
 func _spawn_indicator()->void:
 	pass
 
+func _init_upgrade()->void:
+	if name in Upgrade.upgrade_dict:
+		current_upgrade_level = Upgrade.get_upgrade(name)
+	else:
+		Upgrade.upgrade_dict[name] = 0
+	
+	
 
 		
 		
