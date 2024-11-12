@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ugroy1anpfix"]
+[gd_scene load_steps=5 format=3 uid="uid://ugroy1anpfix"]
 
 [ext_resource type="Script" path="res://component/menu/shop.gd" id="1_2jo55"]
 [ext_resource type="Texture2D" uid="uid://dldr3doapms74" path="res://asset/upgrade/banana_upgrade.png" id="2_lv80v"]
 [ext_resource type="PackedScene" uid="uid://7r85hibg34nr" path="res://component/upgrade/template/upgrade_many.tscn" id="3_nwk4m"]
 [ext_resource type="Texture2D" uid="uid://dofvdgx6re8ox" path="res://asset/score_related/spreadcoins.png" id="4_ypvh4"]
-[ext_resource type="Texture2D" uid="uid://ixikgxdjs7ia" path="res://asset/upgrade/glass_upgrade.png" id="5_5a6wl"]
 
 [node name="shop" type="Control"]
 layout_mode = 3
@@ -37,26 +36,15 @@ text = "ddd"
 position = Vector2(33, 32)
 texture = ExtResource("4_ypvh4")
 
-[node name="Banana_upgrade" parent="." instance=ExtResource("3_nwk4m")]
+[node name="Banan_upgrade" parent="." instance=ExtResource("3_nwk4m")]
 layout_mode = 0
-offset_left = 154.0
-offset_top = 154.0
-offset_right = 194.0
-offset_bottom = 194.0
+offset_left = 128.0
+offset_top = 192.0
+offset_right = 192.0
+offset_bottom = 256.0
 texture_normal = ExtResource("2_lv80v")
 related_var = Array[String](["base_speed"])
 power_increase = Array[int]([10])
-max_upgrade = 10
-
-[node name="Glass_upgrade" parent="." instance=ExtResource("3_nwk4m")]
-layout_mode = 0
-offset_left = 296.0
-offset_top = 168.0
-offset_right = 336.0
-offset_bottom = 208.0
-texture_normal = ExtResource("5_5a6wl")
-related_var = Array[String](["area_of_influence"])
-power_increase = Array[int]([10])
-max_upgrade = 10
+max_upgrade = 9
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

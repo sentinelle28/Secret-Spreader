@@ -8,7 +8,7 @@ class_name UpgradeBool
 func _upgrade()->void:
 	_add_point()
 	_activate_new_function()
-	_spawn_indicator()
+	
 
 func _activate_new_function()->void:
 	PlayerStats._custom_set(related_var,true)

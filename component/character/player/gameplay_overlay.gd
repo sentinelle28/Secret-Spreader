@@ -35,4 +35,9 @@ func _on_start_timer_timeout() -> void:
 	get_parent().can_move = true
 	$gameplay_timer.start(60)
 	$point_shower.show()
+	
+
+
+
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	$timer_label.show()

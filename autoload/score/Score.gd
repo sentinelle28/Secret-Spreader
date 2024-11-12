@@ -2,7 +2,7 @@ extends Node
 
 var total_score:int = 0
 var current_score:int = 0
-var score_to_beat:int = 100
+var score_to_beat:int = 1
 
 var spread_coins:int = 0
 
@@ -20,8 +20,8 @@ func can_pass(time_left:float)->bool:
 	return current_score*mult >= score_to_beat
 	
 func _add_coins(coins:int)->void:
-	spread_coins += coins
-	current_score += coins
+	spread_coins += coins * PlayerStats.secret_mult
+	current_score += coins * PlayerStats.secret_mult
 	
 func get_mult(time_left:float)->float:
 	var current_mult:float = time_left*(0.5)
@@ -43,13 +43,20 @@ func _reset_round()->void:
 func _end_round(time_left:float)->void:
 	if can_pass(time_left):
 		SceneTransition._change_scene("res://component/menu/shop.tscn")
-		
 	else:
 		SceneTransition._change_scene("res://component/menu/death_screen.tscn")
-
+	current_score = 0
+	current_level += 1 
+	#score_to_beat = get_next_score_to_beat(current_level)
 
 func get_point()->int:
 	return current_score
 
 func _pay(price:int)->void:
 	spread_coins -= price
+
+func can_pay(cost:int)->bool:
+	if spread_coins >= cost:
+		_pay(cost)
+		return true
+	return false

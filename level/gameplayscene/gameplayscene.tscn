@@ -19,6 +19,9 @@ position = Vector2(523, 366)
 [node name="goofy_men" parent="." instance=ExtResource("2_mhqle")]
 position = Vector2(354, 391)
 
+[node name="goofy_men2" parent="." instance=ExtResource("2_mhqle")]
+position = Vector2(910, 300)
+
 [node name="map" type="Node2D" parent="."]
 z_index = -10
 

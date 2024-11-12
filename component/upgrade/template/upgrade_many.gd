@@ -7,7 +7,6 @@ extends UpgradeBase
 func _upgrade()->void:
 	_add_point()
 	_add_power()
-	_spawn_indicator()
 
 
 
@@ -22,8 +21,8 @@ func _spawn_indicator()->void:
 		
 		var child:UpgradePrefab = load("res://component/other/prefab/upgrade_prefab.tscn").instantiate()
 		add_child(child)
-		child._set_score("+ " + r)
-		await get_tree().create_timer(0.5).timeout
+		child._set_text("+ " + r)
+		
 
 
 func _add_power()->void:
