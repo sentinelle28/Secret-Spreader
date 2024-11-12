@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://cr77c8ps4wlmp"]
+[gd_scene load_steps=9 format=4 uid="uid://cr77c8ps4wlmp"]
 
 [ext_resource type="PackedScene" uid="uid://dfkqwanr1xlqn" path="res://component/character/player/player.tscn" id="1_wu2xu"]
 [ext_resource type="PackedScene" uid="uid://4qyey1cnek1f" path="res://component/character/goofy_men/goofy_men.tscn" id="2_mhqle"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://b3j8k0dcido76" path="res://component/map/grass.tscn" id="3_p16ag"]
 [ext_resource type="PackedScene" uid="uid://enqf3ok3vyvh" path="res://component/map/fence.tscn" id="4_rgsf8"]
 [ext_resource type="PackedScene" uid="uid://dkpjm5223e2h4" path="res://component/map/hill.tscn" id="6_negkd"]
+[ext_resource type="PackedScene" uid="uid://u3717hkmbhgb" path="res://component/other/end_zone/end_zone.tscn" id="7_i0o6g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0p318"]
+size = Vector2(148, 124)
 
 [node name="gameplayscene" type="Node2D"]
 
@@ -29,3 +33,10 @@ tile_map_data = PackedByteArray("AABHACkAAAAAAAEAAABHACgAAAAAAAEAAABHACcAAAAAAAE
 
 [node name="hill" parent="map" instance=ExtResource("6_negkd")]
 tile_map_data = PackedByteArray("AAAwAO3/AAAAAAIAAAAwAOz/AAAAAAEAAAAwAOv/AAAAAAAAAAAxAOr/AAAAAAEAAAAxAOn/AAAAAAEAAAAxAOj/AAAAAAAAAAAzAO3/AAACAAIAAAAyAO3/AAABAAIAAAAxAO3/AAABAAIAAAAxAOz/AAABAAEAAAAxAOv/AAAGAAIAAAA2AOj/AAACAAAAAAA1AOj/AAABAAAAAAA0AOf/AAACAAAAAAAzAOf/AAABAAAAAAAyAOf/AAAAAAAAAAA3AOn/AAACAAMAAAA2AOr/AAACAAIAAAA1AOv/AAACAAIAAAA0AOz/AAACAAIAAAA2AOn/AAAFAAQAAAA1AOr/AAAFAAEAAAA1AOn/AAABAAEAAAA0AOv/AAAFAAEAAAA0AOr/AAABAAEAAAA0AOn/AAABAAEAAAA0AOj/AAAFAAIAAAAzAOz/AAAFAAEAAAAzAOv/AAABAAEAAAAzAOr/AAABAAEAAAAzAOn/AAABAAEAAAAzAOj/AAABAAEAAAAyAOz/AAABAAEAAAAyAOv/AAABAAEAAAAyAOr/AAABAAEAAAAyAOn/AAABAAEAAAAyAOj/AAAGAAIAAABMAOn/AAACAAAAAABLAOj/AAACAAAAAABKAOj/AAABAAAAAABJAOf/AAACAAAAAABIAOf/AAAAAAAAAABLAOv/AAAAAAIAAABKAOr/AAAAAAIAAABJAOn/AAAAAAIAAABIAOj/AAAAAAIAAABMAOv/AAACAAIAAABNAOr/AAACAAMAAABMAOr/AAAFAAQAAABLAOr/AAAGAAEAAABLAOn/AAAFAAIAAABKAOn/AAAGAAEAAABJAOj/AAAJAAAAAAAtAPj/AAAAAAIAAAAtAPf/AAAEAAIAAAAtAPb/AAADAAAAAAAuAPj/AAACAAIAAAAuAPf/AAACAAAAAAA/AOT/AAACAAIAAAA+AOP/AAAGAAAAAAA9AOP/AAAAAAMAAAA+AOT/AAAAAAIAAAA/AOP/AAACAAAAAAAeAPL/AAAAAAMAAAAfAPH/AAAAAAAAAAAgAPH/AAABAAAAAAAhAPD/AAAAAAAAAAAiAPD/AAACAAAAAAAfAPL/AAAGAAQAAAAhAPH/AAAGAAIAAAAgAPL/AAAFAAEAAAAfAPP/AAAAAAIAAAAgAPP/AAACAAIAAAAhAPL/AAABAAIAAAAiAPH/AAACAAEAAAAiAPL/AAACAAIAAAA=")
+
+[node name="End_zone" parent="." instance=ExtResource("7_i0o6g")]
+position = Vector2(508, 372)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="End_zone"]
+position = Vector2(30, -9)
+shape = SubResource("RectangleShape2D_0p318")

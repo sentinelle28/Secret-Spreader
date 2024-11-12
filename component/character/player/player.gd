@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 class_name Player
+@export var gameplay_overlay:GameplayOverlay
 @export var base_speed:int = 300
 @export var max_stamina:int = 100
 @export var stamina_regen:float = 1.2

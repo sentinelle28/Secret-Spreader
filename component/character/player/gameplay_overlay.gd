@@ -1,6 +1,6 @@
 extends Control
 
-
+class_name GameplayOverlay
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_start()
@@ -26,8 +26,10 @@ func _calibrate_bar()->void:
 
 
 func _on_gameplay_timer_timeout() -> void:
-	Score._end_round(0)
+	_end_round()
 
+func _end_round()->void:
+	Score._end_round($gameplay_timer.time_left)
 
 func _on_start_timer_timeout() -> void:
 	get_parent().can_move = true

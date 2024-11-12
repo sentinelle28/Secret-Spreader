@@ -17,14 +17,14 @@ func get_next_score_to_beat(level:int)->int:
 func can_pass(time_left:float)->bool:
 	var mult:float = get_mult(time_left)
 	total_score += current_score*mult
-	return current_score*mult > score_to_beat
+	return current_score*mult >= score_to_beat
 	
 func _add_coins(coins:int)->void:
 	spread_coins += coins
 	current_score += coins
 	
 func get_mult(time_left:float)->float:
-	var current_mult:float = time_left*(-5.8) + 30
+	var current_mult:float = time_left*(0.5)
 	return clampf(current_mult,1,30)
 
 func _reset()->void:
@@ -43,8 +43,10 @@ func _reset_round()->void:
 func _end_round(time_left:float)->void:
 	if can_pass(time_left):
 		SceneTransition._change_scene("res://component/menu/shop.tscn")
+		
 	else:
 		SceneTransition._change_scene("res://component/menu/death_screen.tscn")
+
 
 func get_point()->int:
 	return current_score

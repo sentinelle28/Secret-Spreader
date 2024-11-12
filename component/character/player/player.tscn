@@ -147,9 +147,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_pq12x"]
 radius = 12.0
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("gameplay_overlay")]
 collision_mask = 2
 script = ExtResource("1_g0ey4")
+gameplay_overlay = NodePath("gameplay_overlay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2p58h")
