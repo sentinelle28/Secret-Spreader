@@ -7,9 +7,13 @@ extends Node2D
 @export_category("Upgrade related")
 @export var current_upgrade:int = 0
 @export var max_upgrade:int = 10
+
+@export var cost:int = 10
+
+@export_category("name")
 @export var related_var:String = "base_speed"
 @export var name_of_upgrade:String = "+ base speed"
-@export var cost:int = 10
+@export var text_label:String = "base speed"
 
 
 
@@ -17,6 +21,7 @@ extends Node2D
 func _ready() -> void:
 	_init_upgrade()
 	_set_up_button()
+	$Label.text = text_label
 
 
 func _draw() -> void:

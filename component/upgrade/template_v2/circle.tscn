@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvj0gcxrtdjhc"]
+[gd_scene load_steps=3 format=3 uid="uid://bvj0gcxrtdjhc"]
 
 [ext_resource type="Script" path="res://component/upgrade/template_v2/circle.gd" id="1_juhig"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hw8lw"]
+font_color = Color(0, 0, 0, 1)
 
 [node name="Circle" type="Node2D"]
 script = ExtResource("1_juhig")
@@ -12,5 +15,20 @@ offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 8.0
 flat = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 4.0
+anchor_top = 4.0
+anchor_right = 4.0
+anchor_bottom = 4.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+label_settings = SubResource("LabelSettings_hw8lw")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
