@@ -58,6 +58,14 @@ func _move(delta:float)->void:
 	_change_sprite(direction)
 	_change_animation(velocity)
 
+func _run_particle(direction:Vector2)->void:
+	if is_running():
+		$CPUParticles2D.emitting = true
+		$CPUParticles2D.gravity = direction*300
+	else:
+		$CPUParticles2D.emitting = false
+
+
 func _change_sprite(direction:Vector2)->void:
 	if direction.x < 0:
 		$AnimatedSprite2D.flip_h = true

@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://4qyey1cnek1f"]
+[gd_scene load_steps=17 format=3 uid="uid://4qyey1cnek1f"]
 
 [ext_resource type="Texture2D" uid="uid://1q8ekttvvdvh" path="res://asset/character/sheets/DinoSprites - doux.png" id="1_2juwh"]
 [ext_resource type="Script" path="res://component/character/goofy_men/goofy_men.gd" id="1_7ftx3"]
 [ext_resource type="PackedScene" uid="uid://ce6f6d51353kr" path="res://component/other/prefab/score_income_prefab.tscn" id="2_10kxf"]
+[ext_resource type="AudioStream" uid="uid://v1fxoier7v8f" path="res://asset/music/secret_coins.tres" id="4_ei6y0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p0qol"]
 
@@ -97,10 +98,6 @@ label_prefab = ExtResource("2_10kxf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_p0qol")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(0, 1000)
-collision_mask = 2
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vwi2y")
 animation = &"walk"
@@ -110,6 +107,9 @@ autoplay = "idle"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 30.0
+
+[node name="SecretCoins" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ei6y0")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]

@@ -63,6 +63,7 @@ func _give_point()->void:
 		new_child._set_score(score_given)
 		
 		do_know_the_secret = true
+		$SecretCoins.play()
 
 
 func _on_navigation_agent_2d_navigation_finished() -> void:

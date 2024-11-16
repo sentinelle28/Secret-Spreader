@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://cl6nuo6n7adgb"]
+[gd_scene load_steps=3 format=3 uid="uid://cl6nuo6n7adgb"]
+
+[ext_resource type="Script" path="res://component/menu/death_screen.gd" id="1_4pekl"]
+[ext_resource type="AudioStream" uid="uid://c8qrtduuo2qjo" path="res://asset/music/failure.tres" id="2_xib8q"]
 
 [node name="death_screen" type="Control"]
 layout_mode = 3
@@ -7,3 +10,74 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_4pekl")
+
+[node name="Failure" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(545, 395)
+stream = ExtResource("2_xib8q")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 152.0
+offset_right = 750.0
+offset_bottom = 518.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 24.0
+offset_right = 221.0
+offset_bottom = 47.0
+text = "You failed"
+
+[node name="Label3" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 144.0
+offset_right = 141.0
+offset_bottom = 167.0
+text = "score:"
+
+[node name="score" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 144.0
+offset_right = 269.0
+offset_bottom = 167.0
+text = "score:"
+
+[node name="Label4" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 208.0
+offset_right = 141.0
+offset_bottom = 231.0
+text = "day:"
+
+[node name="day" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 208.0
+offset_right = 269.0
+offset_bottom = 231.0
+text = "day:"
+
+[node name="Label2" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 359.0
+offset_bottom = 144.0
+text = "As a secret spreader, you had only one goal, unfortunetly you failed. Maybe you will do better another time"
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 304.0
+offset_right = 264.0
+offset_bottom = 344.0
+text = "Try again"
+flat = true
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

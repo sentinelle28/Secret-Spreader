@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dfkqwanr1xlqn"]
+[gd_scene load_steps=25 format=3 uid="uid://dfkqwanr1xlqn"]
 
 [ext_resource type="Texture2D" uid="uid://drpjs1feyn1g6" path="res://asset/character/sheets/DinoSprites - vita.png" id="1_4os7o"]
 [ext_resource type="Script" path="res://component/character/player/player.gd" id="1_g0ey4"]
@@ -147,6 +147,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_pq12x"]
 radius = 12.0
 
+[sub_resource type="Gradient" id="Gradient_q4g31"]
+colors = PackedColorArray(1, 1, 1, 1, 0.306923, 0.306923, 0.306923, 1)
+
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("gameplay_overlay")]
 collision_mask = 2
 script = ExtResource("1_g0ey4")
@@ -171,5 +174,13 @@ debug_color = Color(0.969552, 0, 0.460607, 0.42)
 zoom = Vector2(2, 2)
 
 [node name="gameplay_overlay" parent="." instance=ExtResource("3_hqdxg")]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+lifetime = 0.7
+angular_velocity_max = 100.0
+scale_amount_min = 0.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_q4g31")
 
 [connection signal="body_entered" from="zone_of_influence" to="." method="_on_zone_of_influence_body_entered"]
