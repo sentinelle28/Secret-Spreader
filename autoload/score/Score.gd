@@ -47,7 +47,7 @@ func _end_round(time_left:float)->void:
 		SceneTransition._change_scene("res://component/menu/death_screen.tscn")
 	current_score = 0
 	current_level += 1 
-	#score_to_beat = get_next_score_to_beat(current_level)
+	score_to_beat = get_next_score_to_beat(current_level)
 
 func get_point()->int:
 	return current_score
