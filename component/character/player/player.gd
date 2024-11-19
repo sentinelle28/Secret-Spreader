@@ -6,11 +6,14 @@ class_name Player
 @export var max_stamina:int = 100
 @export var stamina_regen:float = 1.2
 @export var area_of_influence:int = 12
+@export var max_acceleration:float = 1.2
+@export var acceleration_factor:float = 0.01
 
 
 @onready var stamina:float = max_stamina
 
 var stamina_mult:float = 1
+var current_acceleration:float = 1
 
 #animation for the circle
 var offset:float = 0
@@ -19,7 +22,7 @@ var can_move:bool = false
 var is_truly_running:bool = false
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _ready() -> void: 
 	_init()
 	_set_area_of_influence(area_of_influence)
 	
@@ -54,9 +57,17 @@ func _draw() -> void:
 func _move(delta:float)->void:
 	var direction:Vector2 = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	_check_run(delta)
-	velocity = direction*base_speed*stamina_mult
+	_accelerate(direction)
+	velocity = direction*base_speed*stamina_mult*current_acceleration
 	_change_sprite(direction)
 	_change_animation(velocity)
+	
+func _accelerate(direction:Vector2)->void:
+	if direction == Vector2.ZERO:
+		current_acceleration = 1
+		
+	elif direction != Vector2.ZERO:
+		current_acceleration = lerp(current_acceleration,max_acceleration,acceleration_factor)
 
 func _run_particle(direction:Vector2)->void:
 	if is_running():
