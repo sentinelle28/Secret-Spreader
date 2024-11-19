@@ -21,6 +21,7 @@ var offset:float = 0
 var can_move:bool = false
 var is_truly_running:bool = false
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void: 
 	_init()
@@ -61,6 +62,7 @@ func _move(delta:float)->void:
 	velocity = direction*base_speed*stamina_mult*current_acceleration
 	_change_sprite(direction)
 	_change_animation(velocity)
+	_ghost()
 	
 func _accelerate(direction:Vector2)->void:
 	if direction == Vector2.ZERO:
@@ -118,3 +120,16 @@ func _stun():
 	can_move = false
 	await $AnimatedSprite2D.animation_finished
 	can_move = true
+
+func _ghost()->void:
+	
+	if abs(velocity.x) + abs(velocity.y) >= 300:
+		
+		if $ghost_timer.time_left == 0:
+			$ghost_timer.start(0.15)
+
+
+func _on_ghost_timer_timeout() -> void:
+	var ghost:Node2D = load("res://component/character/player/ghost.tscn").instantiate()
+	get_parent().call_deferred("add_child",ghost)
+	ghost.global_position = global_position
