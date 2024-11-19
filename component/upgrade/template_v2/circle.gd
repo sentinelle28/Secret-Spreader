@@ -7,8 +7,8 @@ extends Node2D
 @export_category("Upgrade related")
 @export var current_upgrade:int = 0
 @export var max_upgrade:int = 10
-
 @export var cost:int = 10
+@export var strenght:float = 1
 
 @export_category("name")
 @export var related_var:String = "base_speed"
@@ -31,14 +31,13 @@ func _draw() -> void:
 
 func _upgrade():
 	_add_point()
+	PlayerStats._add(related_var,strenght)
 
 func _add_point()->void:
 	current_upgrade += 1
 	Upgrade._set_upgrade(related_var,current_upgrade)
 	
 	
-func can_buy()->bool:
-	return Score.can_pay(cost)
 
 func _init_upgrade()->void:
 	if related_var in Upgrade.upgrade_dict:
@@ -53,10 +52,15 @@ func _set_up_button()->void:
 
 func _on_button_pressed() -> void:
 	if current_upgrade + 1 <= max_upgrade:
-		if Score.can_pay(cost):
+		if Score.can_pay(cost*current_upgrade):
 			_upgrade()
 			_spawn_indicator()
 			queue_redraw()
+		else:
+			var child:UpgradePrefab = load("res://component/other/prefab/upgrade_prefab.tscn").instantiate()
+			add_child(child)
+			child._set_text("can't buy")
+			child.self_modulate = Color(0.686, 0, 0)
 
 func _spawn_indicator()->void:
 	var child:UpgradePrefab = load("res://component/other/prefab/upgrade_prefab.tscn").instantiate()

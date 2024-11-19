@@ -14,7 +14,10 @@ func _start()->void:
 func _process(_delta: float) -> void:
 	_calibrate_bar()
 	
-	$timer_label.text = "0:"+str(int($gameplay_timer.time_left))
+	if int($gameplay_timer.time_left) > 9:
+		$timer_label.text = "0:"+str(int($gameplay_timer.time_left))
+	else:
+		$timer_label.text = "0:0"+str(int($gameplay_timer.time_left))
 
 func _calibrate_bar()->void:
 	$point_shower.max_value = Score.get_next_score_to_beat(Score.current_level)

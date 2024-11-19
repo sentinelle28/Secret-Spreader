@@ -1,8 +1,8 @@
 extends Node
 
-@export var base_speed:int = 300
+@export var base_speed:int = 200
 @export var max_stamina:int = 100
-@export var stamina_regen:float = 1.2
+@export var stamina_regen:float = 1.4
 @export var area_of_influence:int = 12
 @export var stamina_mult:float = 1.1
 @export var secret_mult:float = 1

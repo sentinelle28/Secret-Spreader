@@ -2,12 +2,13 @@ extends CharacterBody2D
 
 class_name Player
 @export var gameplay_overlay:GameplayOverlay
-@export var base_speed:int = 300
+@export var base_speed:int = 200
 @export var max_stamina:int = 100
-@export var stamina_regen:float = 1.2
+@export var stamina_regen:float = 1.4
 @export var area_of_influence:int = 12
 @export var max_acceleration:float = 1.2
 @export var acceleration_factor:float = 0.01
+@export var ghost_threshold:int = 350
 
 
 @onready var stamina:float = max_stamina
@@ -123,7 +124,7 @@ func _stun():
 
 func _ghost()->void:
 	
-	if abs(velocity.x) + abs(velocity.y) >= 300:
+	if abs(velocity.x) + abs(velocity.y) >= ghost_threshold:
 		
 		if $ghost_timer.time_left == 0:
 			$ghost_timer.start(0.15)

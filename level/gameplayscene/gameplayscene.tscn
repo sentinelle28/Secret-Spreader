@@ -88,4 +88,22 @@ position = Vector2(354, 391)
 [node name="goofy_men2" parent="goofy_stocker" instance=ExtResource("2_mhqle")]
 position = Vector2(910, 300)
 
+[node name="goofy_men3" parent="goofy_stocker" instance=ExtResource("2_mhqle")]
+position = Vector2(354, 391)
+
+[node name="goofy_men4" parent="goofy_stocker" instance=ExtResource("2_mhqle")]
+position = Vector2(910, 300)
+
+[node name="goofy_men5" parent="goofy_stocker" instance=ExtResource("2_mhqle")]
+position = Vector2(354, 391)
+
+[node name="goofy_men6" parent="goofy_stocker" instance=ExtResource("2_mhqle")]
+position = Vector2(910, 300)
+
+[node name="goofy_men7" parent="goofy_stocker" instance=ExtResource("2_mhqle")]
+position = Vector2(354, 391)
+
+[node name="goofy_men8" parent="goofy_stocker" instance=ExtResource("2_mhqle")]
+position = Vector2(910, 300)
+
 [node name="water_trap" type="Node" parent="."]
