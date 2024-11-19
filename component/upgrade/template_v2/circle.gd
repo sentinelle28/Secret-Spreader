@@ -52,7 +52,7 @@ func _set_up_button()->void:
 
 func _on_button_pressed() -> void:
 	if current_upgrade + 1 <= max_upgrade:
-		if Score.can_pay(cost*current_upgrade):
+		if Score.can_pay(cost*(current_upgrade+1)):
 			_upgrade()
 			_spawn_indicator()
 			queue_redraw()
