@@ -101,3 +101,9 @@ func _on_zone_of_influence_body_entered(body: Node2D) -> void:
 
 func is_running()->bool:
 	return is_truly_running
+
+func _stun():
+	$AnimatedSprite2D.play("stun")
+	can_move = false
+	await $AnimatedSprite2D.animation_finished
+	can_move = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dfkqwanr1xlqn"]
+[gd_scene load_steps=29 format=3 uid="uid://dfkqwanr1xlqn"]
 
 [ext_resource type="Texture2D" uid="uid://drpjs1feyn1g6" path="res://asset/character/sheets/DinoSprites - vita.png" id="1_4os7o"]
 [ext_resource type="Script" path="res://component/character/player/player.gd" id="1_g0ey4"]
@@ -46,6 +46,22 @@ region = Rect2(528, 0, 24, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_kuur5"]
 atlas = ExtResource("1_4os7o")
 region = Rect2(552, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwcne"]
+atlas = ExtResource("1_4os7o")
+region = Rect2(312, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipbji"]
+atlas = ExtResource("1_4os7o")
+region = Rect2(336, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt3ht"]
+atlas = ExtResource("1_4os7o")
+region = Rect2(360, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3g0ga"]
+atlas = ExtResource("1_4os7o")
+region = Rect2(384, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mv71y"]
 atlas = ExtResource("1_4os7o")
@@ -119,6 +135,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jwcne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipbji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt3ht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3g0ga")
+}],
+"loop": true,
+"name": &"stun",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mv71y")
 }, {
 "duration": 1.0,
@@ -160,9 +193,10 @@ shape = SubResource("CircleShape2D_2p58h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pig2p")
-animation = &"walk"
+animation = &"stun"
 autoplay = "idle"
-frame_progress = 0.0141085
+frame = 3
+frame_progress = 0.560615
 
 [node name="zone_of_influence" type="Area2D" parent="."]
 
