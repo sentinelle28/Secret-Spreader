@@ -10,4 +10,4 @@ func _set_upgrade(upgrade_name:String,value:int)->void:
 	upgrade_dict[upgrade_name] = value
 
 func _reset()->void:
-	upgrade_dict = {}
+	upgrade_dict.clear()

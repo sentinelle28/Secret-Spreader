@@ -16,7 +16,7 @@ func get_next_score_to_beat(level:int)->int:
 	
 func can_pass(time_left:float)->bool:
 	var mult:float = get_mult(time_left)
-	total_score += current_score*mult
+	
 	return current_score*mult >= score_to_beat
 	
 func _add_coins(coins:int)->void:
@@ -30,7 +30,7 @@ func get_mult(time_left:float)->float:
 func _reset()->void:
 	total_score = 0
 	current_score = 0
-	score_to_beat = 100
+	score_to_beat = 50
 	spread_coins = 0
 	current_level = 1
 	
@@ -41,6 +41,8 @@ func _reset_round()->void:
 	Upgrade._reset()
 
 func _end_round(time_left:float)->void:
+	var mult:float = get_mult(time_left)
+	total_score += current_score*mult
 	if can_pass(time_left):
 		current_score = 0
 		current_level += 1 

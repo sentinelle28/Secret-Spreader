@@ -10,9 +10,9 @@ extends Node
 
 
 func _reset()->void:
-	base_speed = 300
+	base_speed = 200
 	max_stamina = 100
-	stamina_regen = 1.2
+	stamina_regen = 1.4
 	area_of_influence = 12
 	stamina_mult = 1.1
 	secret_mult = 1

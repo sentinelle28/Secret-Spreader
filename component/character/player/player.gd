@@ -59,17 +59,17 @@ func _draw() -> void:
 func _move(delta:float)->void:
 	var direction:Vector2 = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	_check_run(delta)
-	_accelerate(direction)
+	_accelerate()
 	velocity = direction*base_speed*stamina_mult*current_acceleration
 	_change_sprite(direction)
 	_change_animation(velocity)
 	_ghost()
 	
-func _accelerate(direction:Vector2)->void:
-	if direction == Vector2.ZERO:
+func _accelerate()->void:
+	if velocity == Vector2.ZERO:
 		current_acceleration = 1
 		
-	elif direction != Vector2.ZERO:
+	elif velocity != Vector2.ZERO:
 		current_acceleration = lerp(current_acceleration,max_acceleration,acceleration_factor)
 
 func _run_particle(direction:Vector2)->void:
