@@ -123,11 +123,14 @@ func _stun():
 	can_move = true
 
 func _ghost()->void:
-	
-	if abs(velocity.x) + abs(velocity.y) >= ghost_threshold:
+	var total:float =abs(velocity.x) + abs(velocity.y)
+	if  total>= ghost_threshold:
 		
 		if $ghost_timer.time_left == 0:
-			$ghost_timer.start(0.15)
+			var percent:float = total/ghost_threshold
+			var time_to_wait = clampf(1/percent-0.60,0.001,0.20)
+			$ghost_timer.start(time_to_wait)
+
 
 
 func _on_ghost_timer_timeout() -> void:
