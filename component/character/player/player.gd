@@ -22,6 +22,7 @@ var offset:float = 0
 var can_move:bool = false
 var is_truly_running:bool = false
 
+var is_recovering:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void: 
@@ -54,7 +55,12 @@ func _draw() -> void:
 	
 	if stamina != max_stamina:
 		var end_angle:float = (stamina/max_stamina)*2*PI
-		draw_arc(Vector2(10,-10),4,0,end_angle,1000,Color.GREEN,4)
+		var color:Color
+		if is_recovering:
+			color = Color.RED
+		else:
+			color = Color.GREEN
+		draw_arc(Vector2(10,-10),4,0,end_angle,1000,color,4)
 
 func _move(delta:float)->void:
 	var direction:Vector2 = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
@@ -95,18 +101,22 @@ func _change_animation(force:Vector2)->void:
 		$AnimatedSprite2D.play("walk")
 
 func _check_run(delta:float)->void:
-	if Input.is_action_pressed("run") and stamina > 0:
+	if Input.is_action_pressed("run") and stamina > 0 and not is_recovering:
 		stamina_mult = 1.1 #to connect to player stats autoload
 		stamina -= delta*10
 		is_truly_running = true
 	elif Input.is_action_just_released("run") or stamina <= 0:
 		stamina_mult = 1
 		is_truly_running = false
+		if stamina <= 0:
+			is_recovering = true
 
 func _regen_stamina(delta:float)->void:
 	if not is_running():
 		stamina += stamina_regen*delta
 		stamina = clampf(stamina,0,max_stamina)
+		if stamina >= 0.1*max_stamina:
+			is_recovering = false
 	 
 
 func _on_zone_of_influence_body_entered(body: Node2D) -> void:

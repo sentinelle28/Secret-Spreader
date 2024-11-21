@@ -12,7 +12,7 @@ var current_level:int = 1
 
 
 func get_next_score_to_beat(level:int)->int:
-	return level*50
+	return level**2+50
 	
 func can_pass(time_left:float)->bool:
 	var mult:float = get_mult(time_left)

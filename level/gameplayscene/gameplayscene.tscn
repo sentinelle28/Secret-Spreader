@@ -66,6 +66,7 @@ text = "For early
 position = Vector2(629, 136)
 spawn_map_stocker = NodePath("../../spawn_map")
 parent = NodePath("../../goofy_stocker")
+goofy_men_ref = ExtResource("2_mhqle")
 
 [node name="goofy_stocker" type="Node" parent="."]
 
