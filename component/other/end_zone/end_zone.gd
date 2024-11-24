@@ -5,8 +5,7 @@ var player:Player
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and is_player_in :
-		if Score.can_pass(0):
-			player.gameplay_overlay._end_round()
+		player.gameplay_overlay._end_round()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
