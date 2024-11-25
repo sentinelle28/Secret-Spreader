@@ -43,21 +43,15 @@ tile_map_data = PackedByteArray("AABHABMAAAACAAMAAABGABMAAAABAAAAAABGABQAAAAAAAI
 
 [node name="Play" parent="." instance=ExtResource("6_vxnv2")]
 z_index = -1
-position = Vector2(448, 576)
+position = Vector2(576, 576)
 color = Color(0.203922, 0.713726, 0.619608, 1)
 radius = 50
 path = "res://level/gameplayscene/gameplayscene.tscn"
 
 [node name="tutoriel" parent="." instance=ExtResource("6_vxnv2")]
 z_index = -1
-position = Vector2(640, 576)
+position = Vector2(768, 576)
 color = Color(0, 0.643137, 0, 1)
 radius = 50
 text_label = "Tutorial"
 path = "res://level/tutorial/tutorial.tscn"
-
-[node name="setting" parent="." instance=ExtResource("6_vxnv2")]
-position = Vector2(832, 576)
-color = Color(0.745098, 0.6, 0, 1)
-radius = 50
-text_label = "Settings"

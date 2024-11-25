@@ -28,6 +28,7 @@ var is_recovering:bool = false
 func _ready() -> void: 
 	_init()
 	_set_area_of_influence(area_of_influence)
+	CheatInput.connect("UpdateStats",_update)
 	
 func _init()->void:
 	base_speed = PlayerStats.base_speed
@@ -48,6 +49,11 @@ func _process(delta: float) -> void:
 		_regen_stamina(delta)
 		_move(delta)
 		move_and_slide()
+		_cheat()
+	
+func _cheat():
+	if Input.is_action_just_pressed("Cheat"):
+		CheatInput._consol()
 	
 func _draw() -> void:
 	for i in range(0,361,15):
@@ -147,3 +153,6 @@ func _on_ghost_timer_timeout() -> void:
 	var ghost:Node2D = load("res://component/character/player/ghost.tscn").instantiate()
 	get_parent().call_deferred("add_child",ghost)
 	ghost.global_position = global_position
+
+func _update()->void:
+	_init()

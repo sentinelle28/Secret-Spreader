@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://btahbnc8mgejl"]
+
+[ext_resource type="Script" path="res://autoload/cheat_input/cheat_input.gd" id="1_h50ld"]
+
+[node name="CheatInput" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_h50ld")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_right = 1152.0
+offset_bottom = 80.0
+placeholder_text = "Write the cheat code here
+Once you enter a code press tab"
+shortcut_keys_enabled = false
