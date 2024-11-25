@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dygdf3yww1x7m"]
+
+[ext_resource type="PackedScene" uid="uid://bvj0gcxrtdjhc" path="res://component/upgrade/template_v2/circle.tscn" id="1_785gv"]
+[ext_resource type="Script" path="res://component/menu/button.gd" id="2_dwasn"]
+
+[node name="Button" instance=ExtResource("1_785gv")]
+script = ExtResource("2_dwasn")
+radius = 100
+text_label = "Play"
+path = ""
+
+[node name="Button" parent="." index="0"]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+
+[node name="Label" parent="." index="1"]
+text = "Play"

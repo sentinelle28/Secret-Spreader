@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ugroy1anpfix"]
+[gd_scene load_steps=6 format=3 uid="uid://ugroy1anpfix"]
 
 [ext_resource type="Script" path="res://component/menu/shop.gd" id="1_2jo55"]
 [ext_resource type="PackedScene" uid="uid://bvj0gcxrtdjhc" path="res://component/upgrade/template_v2/circle.tscn" id="3_314o7"]
 [ext_resource type="AudioStream" uid="uid://bvkiyr7tcp328" path="res://asset/music/requierement_pas.tres" id="4_06rhb"]
 [ext_resource type="Texture2D" uid="uid://dofvdgx6re8ox" path="res://asset/score_related/spreadcoins.png" id="4_ypvh4"]
+[ext_resource type="PackedScene" uid="uid://dygdf3yww1x7m" path="res://component/menu/button.tscn" id="5_gv0jr"]
 
 [node name="shop" type="Control"]
 layout_mode = 3
@@ -13,15 +14,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2jo55")
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 485.0
-offset_top = 562.0
-offset_right = 568.0
-offset_bottom = 593.0
-theme_override_font_sizes/font_size = 30
-text = "Next secret"
 
 [node name="HBoxContainer" type="Node" parent="."]
 
@@ -108,4 +100,8 @@ position = Vector2(232, 184)
 stream = ExtResource("4_06rhb")
 bus = &"Sound effect"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Button2" parent="." instance=ExtResource("5_gv0jr")]
+position = Vector2(512, 552)
+radius = 70
+text_label = "Next Secret"
+path = "res://level/gameplayscene/gameplayscene.tscn"
