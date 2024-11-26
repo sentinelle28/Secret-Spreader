@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://ugroy1anpfix"]
+[gd_scene load_steps=7 format=3 uid="uid://ugroy1anpfix"]
 
 [ext_resource type="Script" path="res://component/menu/shop.gd" id="1_2jo55"]
 [ext_resource type="PackedScene" uid="uid://bvj0gcxrtdjhc" path="res://component/upgrade/template_v2/circle.tscn" id="3_314o7"]
 [ext_resource type="AudioStream" uid="uid://bvkiyr7tcp328" path="res://asset/music/requierement_pas.tres" id="4_06rhb"]
-[ext_resource type="Texture2D" uid="uid://dofvdgx6re8ox" path="res://asset/score_related/spreadcoins.png" id="4_ypvh4"]
 [ext_resource type="PackedScene" uid="uid://dygdf3yww1x7m" path="res://component/menu/button.tscn" id="5_gv0jr"]
+[ext_resource type="PackedScene" uid="uid://bsbe5rdle4qfv" path="res://component/menu/circle_label.tscn" id="5_q83cj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y4jfd"]
+font_color = Color(0, 0, 0, 1)
 
 [node name="shop" type="Control"]
 layout_mode = 3
@@ -17,27 +20,32 @@ script = ExtResource("1_2jo55")
 
 [node name="HBoxContainer" type="Node" parent="."]
 
-[node name="money_label" type="Label" parent="HBoxContainer"]
-offset_left = 80.0
-offset_top = 24.0
-offset_right = 110.0
-offset_bottom = 47.0
-text = "ddd"
+[node name="circle_label" parent="HBoxContainer" instance=ExtResource("5_q83cj")]
+z_index = -1
+position = Vector2(80, 72)
+background_color = Color(1, 1, 0, 1)
+radius = 50
 
-[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer"]
-position = Vector2(33, 32)
-texture = ExtResource("4_ypvh4")
+[node name="money_label" type="Label" parent="HBoxContainer"]
+z_index = 1
+offset_left = 64.0
+offset_top = 56.0
+offset_right = 94.0
+offset_bottom = 79.0
+text = "ddd"
+label_settings = SubResource("LabelSettings_y4jfd")
+horizontal_alignment = 1
 
 [node name="Upgrade list" type="Node" parent="."]
 
 [node name="base_speed" parent="Upgrade list" instance=ExtResource("3_314o7")]
-position = Vector2(224, 160)
+position = Vector2(976, 384)
 color = Color(0, 1, 1, 1)
 radius = 50
 strenght = 10.0
 
 [node name="max_stamina" parent="Upgrade list" instance=ExtResource("3_314o7")]
-position = Vector2(416, 168)
+position = Vector2(544, 152)
 color = Color(0, 1, 0, 1)
 radius = 50
 strenght = 10.0
@@ -46,7 +54,7 @@ name_of_upgrade = "+ max stamina"
 text_label = "max stamina"
 
 [node name="stamina_regen" parent="Upgrade list" instance=ExtResource("3_314o7")]
-position = Vector2(608, 168)
+position = Vector2(760, 152)
 color = Color(0, 0.396078, 0, 1)
 radius = 50
 cost = 20
@@ -56,7 +64,7 @@ name_of_upgrade = "+ stamina regen"
 text_label = "stamina regen"
 
 [node name="area_of_influence" parent="Upgrade list" instance=ExtResource("3_314o7")]
-position = Vector2(224, 352)
+position = Vector2(768, 384)
 color = Color(1, 1, 0, 1)
 radius = 50
 cost = 5
@@ -66,7 +74,7 @@ name_of_upgrade = "+ influence"
 text_label = "influence"
 
 [node name="stamina_mult" parent="Upgrade list" instance=ExtResource("3_314o7")]
-position = Vector2(416, 360)
+position = Vector2(552, 384)
 color = Color(1, 0.0862745, 1, 1)
 radius = 50
 cost = 15
@@ -76,7 +84,7 @@ name_of_upgrade = "+ stamina speed"
 text_label = "stamina speed"
 
 [node name="secret_mult" parent="Upgrade list" instance=ExtResource("3_314o7")]
-position = Vector2(608, 360)
+position = Vector2(344, 280)
 color = Color(0.568627, 0, 1, 1)
 radius = 50
 cost = 100
@@ -86,7 +94,7 @@ name_of_upgrade = "+ secret mult"
 text_label = "secret mult"
 
 [node name="better_goofy_men" parent="Upgrade list" instance=ExtResource("3_314o7")]
-position = Vector2(888, 264)
+position = Vector2(976, 152)
 color = Color(0.990067, 0.752756, 0.814178, 1)
 radius = 50
 cost = 35
@@ -96,12 +104,18 @@ name_of_upgrade = "+ more points"
 text_label = "points"
 
 [node name="RequierementPas" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(232, 184)
 stream = ExtResource("4_06rhb")
 bus = &"Sound effect"
 
 [node name="Button2" parent="." instance=ExtResource("5_gv0jr")]
-position = Vector2(512, 552)
+position = Vector2(88, 544)
 radius = 70
 text_label = "Next Secret"
 path = "res://level/gameplayscene/gameplayscene.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -100
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+metadata/_edit_lock_ = true

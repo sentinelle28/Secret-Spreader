@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsbe5rdle4qfv"]
+
+[ext_resource type="Script" path="res://component/menu/circle_label.gd" id="1_apswv"]
+
+[node name="circle_label" type="Node2D"]
+script = ExtResource("1_apswv")

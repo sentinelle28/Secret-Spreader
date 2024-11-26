@@ -1,5 +1,6 @@
 extends Node
 
+var highscore:int = 0
 var total_score:int = 0
 var current_score:int = 0
 var score_to_beat:int = 50
@@ -36,6 +37,9 @@ func _reset()->void:
 	
 
 func _reset_round()->void:
+	if total_score > highscore:
+		highscore = total_score
+		
 	_reset()
 	PlayerStats._reset()
 	Upgrade._reset()

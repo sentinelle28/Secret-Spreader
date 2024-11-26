@@ -54,6 +54,7 @@ func _process(delta: float) -> void:
 func _cheat():
 	if Input.is_action_just_pressed("Cheat"):
 		CheatInput._consol()
+		PlayerStats.did_cheat = true
 	
 func _draw() -> void:
 	for i in range(0,361,15):

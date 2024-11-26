@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cl6nuo6n7adgb"]
+[gd_scene load_steps=7 format=3 uid="uid://cl6nuo6n7adgb"]
 
 [ext_resource type="Script" path="res://component/menu/death_screen.gd" id="1_4pekl"]
 [ext_resource type="AudioStream" uid="uid://c8qrtduuo2qjo" path="res://asset/music/failure.tres" id="2_xib8q"]
+[ext_resource type="PackedScene" uid="uid://dygdf3yww1x7m" path="res://component/menu/button.tscn" id="3_1gk2f"]
+[ext_resource type="PackedScene" uid="uid://bsbe5rdle4qfv" path="res://component/menu/circle_label.tscn" id="4_naqtl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tsaui"]
+font_size = 13
+
+[sub_resource type="LabelSettings" id="LabelSettings_wybtr"]
 
 [node name="death_screen" type="Control"]
 layout_mode = 3
@@ -16,68 +23,90 @@ script = ExtResource("1_4pekl")
 position = Vector2(545, 395)
 stream = ExtResource("2_xib8q")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -100
 layout_mode = 0
-offset_left = 384.0
-offset_top = 152.0
-offset_right = 750.0
-offset_bottom = 518.0
+offset_right = 1152.0
+offset_bottom = 672.0
 
-[node name="Label" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 144.0
-offset_top = 24.0
-offset_right = 221.0
-offset_bottom = 47.0
-text = "You failed"
+[node name="Button" parent="." instance=ExtResource("3_1gk2f")]
+position = Vector2(552, 552)
+radius = 70
+text_label = "Try again"
+path = "res://level/gameplayscene/gameplayscene.tscn"
 
-[node name="Label3" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 144.0
-offset_right = 141.0
-offset_bottom = 167.0
-text = "score:"
+[node name="circle_label" parent="." instance=ExtResource("4_naqtl")]
+position = Vector2(256, 320)
+background_color = Color(0.446777, 0.446777, 0.446777, 1)
+color = Color(1, 0.545098, 0, 1)
+radius = 70
 
-[node name="score" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 192.0
-offset_top = 144.0
-offset_right = 269.0
-offset_bottom = 167.0
-text = "score:"
+[node name="Label" type="Label" parent="circle_label"]
+offset_left = -48.0
+offset_top = -24.0
+offset_right = 64.0
+offset_bottom = -1.0
+text = "Secret Spread"
+label_settings = SubResource("LabelSettings_tsaui")
 
-[node name="Label4" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 208.0
-offset_right = 141.0
-offset_bottom = 231.0
-text = "day:"
+[node name="Label2" type="Label" parent="circle_label"]
+offset_left = -24.0
+offset_top = 8.0
+offset_right = 16.0
+offset_bottom = 31.0
+label_settings = SubResource("LabelSettings_wybtr")
+horizontal_alignment = 1
 
-[node name="day" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 192.0
-offset_top = 208.0
-offset_right = 269.0
-offset_bottom = 231.0
-text = "day:"
+[node name="circle_label2" parent="." instance=ExtResource("4_naqtl")]
+position = Vector2(896, 320)
+background_color = Color(0.556953, 0.556953, 0.556953, 1)
+color = Color(0.545098, 0, 1, 1)
+radius = 70
 
-[node name="Label2" type="RichTextLabel" parent="Panel"]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 48.0
-offset_right = 359.0
-offset_bottom = 144.0
-text = "As a secret spreader, you had only one goal, unfortunetly you failed. Maybe you will do better another time"
+[node name="Label" type="Label" parent="circle_label2"]
+offset_left = -24.0
+offset_top = -32.0
+offset_right = 16.0
+offset_bottom = -9.0
+text = "Score"
+horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="Panel"]
-layout_mode = 0
-offset_left = 120.0
-offset_top = 304.0
-offset_right = 264.0
-offset_bottom = 344.0
-text = "Try again"
-flat = true
+[node name="Label2" type="Label" parent="circle_label2"]
+offset_left = -24.0
+offset_right = 16.0
+offset_bottom = 23.0
+horizontal_alignment = 1
 
-[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+[node name="circle_label3" parent="." instance=ExtResource("4_naqtl")]
+position = Vector2(576, 192)
+background_color = Color(0.332881, 0.332881, 0.332881, 1)
+color = Color(0, 1, 1, 1)
+radius = 100
+
+[node name="Label" type="Label" parent="circle_label3"]
+offset_left = -40.0
+offset_top = -48.0
+offset_right = 38.0
+offset_bottom = -25.0
+text = "Highscore"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="circle_label3"]
+offset_left = -24.0
+offset_right = 16.0
+offset_bottom = 23.0
+horizontal_alignment = 1
+
+[node name="circle_label4" parent="." instance=ExtResource("4_naqtl")]
+position = Vector2(120, 584)
+background_color = Color(0.408329, 0.408329, 0.408329, 1)
+color = Color(1, 0, 0, 1)
+radius = 50
+
+[node name="RichTextLabel" type="RichTextLabel" parent="circle_label4"]
+offset_left = -32.0
+offset_top = -24.0
+offset_right = 32.0
+offset_bottom = 24.0
+text = "Little
+Cheater"

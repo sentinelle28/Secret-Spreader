@@ -27,6 +27,7 @@ func _ready() -> void:
 func _draw() -> void:
 	var end_angle:float = float(current_upgrade)/float(max_upgrade)*2*PI
 	draw_circle(Vector2.ZERO,radius,Color.GRAY,true)
+	#draw_arc(Vector2.ZERO,radius,0,2*PI,1000,Color.BLACK,radius/2)
 	draw_arc(Vector2.ZERO,radius,0,end_angle,1000,color,radius/2)
 
 func _upgrade():

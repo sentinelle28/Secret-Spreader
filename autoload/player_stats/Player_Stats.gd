@@ -8,6 +8,7 @@ extends Node
 @export var secret_mult:float = 1
 @export var better_goofy_men:int = 10
 
+var did_cheat:bool = false
 
 func _reset()->void:
 	base_speed = 200
