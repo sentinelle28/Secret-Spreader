@@ -23,6 +23,12 @@ func _ready() -> void:
 	_set_up_button()
 	$Label.text = text_label
 
+func _process(_delta: float) -> void:
+	if Score.spread_coins >= get_current_cost():
+		self_modulate = Color(1, 1, 1)
+	else:
+		self_modulate = Color(1, 1, 1, 0.247)
+		
 
 func _draw() -> void:
 	var end_angle:float = float(current_upgrade)/float(max_upgrade)*2*PI
@@ -50,10 +56,12 @@ func _set_up_button()->void:
 	$Button.set_size(Vector2(radius*2,radius*2))
 	$Button.set_position(Vector2(-radius,-radius))
 
+func get_current_cost()->int:
+	return cost*(current_upgrade+1)
 
 func _on_button_pressed() -> void:
 	if current_upgrade + 1 <= max_upgrade:
-		if Score.can_pay(cost*(current_upgrade+1)):
+		if Score.can_pay(get_current_cost()):
 			_upgrade()
 			_spawn_indicator()
 			queue_redraw()

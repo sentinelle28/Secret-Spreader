@@ -35,10 +35,12 @@ func _reset()->void:
 	spread_coins = 0
 	current_level = 1
 	
-
-func _reset_round()->void:
+func _check_highscore()->void:
 	if total_score > highscore:
 		highscore = total_score
+
+func _reset_round()->void:
+	
 		
 	_reset()
 	PlayerStats._reset()
@@ -53,7 +55,9 @@ func _end_round(time_left:float)->void:
 		score_to_beat = get_next_score_to_beat(current_level)
 		SceneTransition._change_scene("res://component/menu/shop.tscn")
 	else:
+		_check_highscore()
 		SceneTransition._change_scene("res://component/menu/death_screen.tscn")
+		
 	
 
 func get_point()->int:

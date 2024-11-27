@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://4qyey1cnek1f"]
+[gd_scene load_steps=18 format=3 uid="uid://4qyey1cnek1f"]
 
 [ext_resource type="Texture2D" uid="uid://1q8ekttvvdvh" path="res://asset/character/sheets/DinoSprites - doux.png" id="1_2juwh"]
 [ext_resource type="Script" path="res://component/character/goofy_men/goofy_men.gd" id="1_7ftx3"]
 [ext_resource type="PackedScene" uid="uid://ce6f6d51353kr" path="res://component/other/prefab/score_income_prefab.tscn" id="2_10kxf"]
+[ext_resource type="PackedScene" uid="uid://wsvww6a3tbjv" path="res://component/other/dialogue/dialogue.tscn" id="3_sjuu4"]
 [ext_resource type="AudioStream" uid="uid://v1fxoier7v8f" path="res://asset/music/secret_coins.tres" id="4_ei6y0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p0qol"]
@@ -94,6 +95,7 @@ animations = [{
 collision_mask = 2
 script = ExtResource("1_7ftx3")
 label_prefab = ExtResource("2_10kxf")
+dialogue_prefab = ExtResource("3_sjuu4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_p0qol")

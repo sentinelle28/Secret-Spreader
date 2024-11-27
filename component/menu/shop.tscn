@@ -58,7 +58,7 @@ position = Vector2(760, 152)
 color = Color(0, 0.396078, 0, 1)
 radius = 50
 cost = 20
-strenght = 0.1
+strenght = 0.2
 related_var = "stamina_regen"
 name_of_upgrade = "+ stamina regen"
 text_label = "stamina regen"
@@ -68,7 +68,7 @@ position = Vector2(768, 384)
 color = Color(1, 1, 0, 1)
 radius = 50
 cost = 5
-strenght = 2.0
+strenght = 4.0
 related_var = "area_of_influence"
 name_of_upgrade = "+ influence"
 text_label = "influence"
@@ -98,7 +98,7 @@ position = Vector2(976, 152)
 color = Color(0.990067, 0.752756, 0.814178, 1)
 radius = 50
 cost = 35
-strenght = 10.0
+strenght = 2.0
 related_var = "better_goofy_men"
 name_of_upgrade = "+ more points"
 text_label = "points"
@@ -107,15 +107,15 @@ text_label = "points"
 stream = ExtResource("4_06rhb")
 bus = &"Sound effect"
 
-[node name="Button2" parent="." instance=ExtResource("5_gv0jr")]
-position = Vector2(88, 544)
-radius = 70
-text_label = "Next Secret"
-path = "res://level/gameplayscene/gameplayscene.tscn"
-
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -100
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 metadata/_edit_lock_ = true
+
+[node name="Button2" parent="." instance=ExtResource("5_gv0jr")]
+position = Vector2(88, 544)
+radius = 70
+text_label = "Next Secret"
+path = "res://level/gameplayscene/gameplayscene.tscn"

@@ -9,3 +9,4 @@ func _ready() -> void:
 	$circle_label3/Label2.text = str(Score.highscore)
 	if not PlayerStats.did_cheat:
 		$circle_label4.hide()
+	Score._reset_round()

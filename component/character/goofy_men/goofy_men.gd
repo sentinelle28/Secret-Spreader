@@ -3,6 +3,8 @@ extends CharacterBody2D
 class_name GoofyMen
 @export var score_given:int = 10
 @export var label_prefab:PackedScene
+@export var dialogue_prefab:PackedScene
+@export var radius:int = 300
 var do_know_the_secret:bool = false
 var target:Vector2
 var radius_to_target:int = 200
@@ -25,7 +27,8 @@ func _on_timer_timeout() -> void:
 	_choose_new_target()
 
 func _choose_new_target()->void:
-	target  = Vector2(randi_range(0,1000),randi_range(0,1000))
+	target  = Vector2(randi_range(-radius,radius),randi_range(-radius,radius))
+	target += global_position
 	can_walk = true
 	$NavigationAgent2D.target_position = target
 	
@@ -60,7 +63,14 @@ func _give_point()->void:
 		#add visual indicator
 		var new_child:ScoreIncomePrefab = label_prefab.instantiate()
 		add_child(new_child)
+		
 		new_child._set_score(score_given)
+		
+		
+		var new_child2:Label = dialogue_prefab.instantiate()
+		add_child(new_child2)
+		
+		
 		
 		do_know_the_secret = true
 		$SecretCoins.play()
