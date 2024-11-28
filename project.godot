@@ -25,6 +25,11 @@ GlobalAudioStreamPlayer="*res://autoload/main_music/audio_stream_player.tscn"
 CheatInput="*res://autoload/cheat_input/CheatInput.tscn"
 PossibleDialogue="*res://autoload/dialogue_autolaud/PossibleDialogue.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [input]
 
 run={
