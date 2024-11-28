@@ -25,9 +25,12 @@ stream = ExtResource("2_xib8q")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -100
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 672.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Button" parent="." instance=ExtResource("3_1gk2f")]
 position = Vector2(552, 552)
@@ -48,6 +51,7 @@ offset_right = 64.0
 offset_bottom = -1.0
 text = "Secret Spread"
 label_settings = SubResource("LabelSettings_tsaui")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="circle_label"]
 offset_left = -24.0
@@ -56,6 +60,7 @@ offset_right = 16.0
 offset_bottom = 31.0
 label_settings = SubResource("LabelSettings_wybtr")
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="circle_label2" parent="." instance=ExtResource("4_naqtl")]
 position = Vector2(896, 320)
@@ -70,12 +75,14 @@ offset_right = 16.0
 offset_bottom = -9.0
 text = "Score"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="circle_label2"]
 offset_left = -24.0
 offset_right = 16.0
 offset_bottom = 23.0
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="circle_label3" parent="." instance=ExtResource("4_naqtl")]
 position = Vector2(576, 192)
@@ -90,12 +97,14 @@ offset_right = 38.0
 offset_bottom = -25.0
 text = "Highscore"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="circle_label3"]
 offset_left = -24.0
 offset_right = 16.0
 offset_bottom = 23.0
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="circle_label4" parent="." instance=ExtResource("4_naqtl")]
 position = Vector2(120, 584)
@@ -110,3 +119,4 @@ offset_right = 32.0
 offset_bottom = 24.0
 text = "Little
 Cheater"
+metadata/_edit_use_anchors_ = true
