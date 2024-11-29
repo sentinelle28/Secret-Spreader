@@ -193,10 +193,8 @@ shape = SubResource("CircleShape2D_2p58h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pig2p")
-animation = &"stun"
+animation = &"idle"
 autoplay = "idle"
-frame = 3
-frame_progress = 0.560615
 
 [node name="zone_of_influence" type="Area2D" parent="."]
 
