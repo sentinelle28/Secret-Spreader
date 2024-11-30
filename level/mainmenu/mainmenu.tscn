@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://bm1f4hmd7p6dm"]
+[gd_scene load_steps=8 format=4 uid="uid://bm1f4hmd7p6dm"]
 
 [ext_resource type="PackedScene" uid="uid://h307i0guq6nn" path="res://component/map/water.tscn" id="2_mnn57"]
 [ext_resource type="PackedScene" uid="uid://b3j8k0dcido76" path="res://component/map/grass.tscn" id="3_by8td"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dkpjm5223e2h4" path="res://component/map/hill.tscn" id="5_4maah"]
 [ext_resource type="PackedScene" uid="uid://enqf3ok3vyvh" path="res://component/map/fence.tscn" id="6_5egrn"]
 [ext_resource type="PackedScene" uid="uid://dygdf3yww1x7m" path="res://component/menu/button.tscn" id="6_vxnv2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jwexl"]
+font_size = 30
 
 [node name="mainmenu" type="Node2D"]
 
@@ -69,3 +72,19 @@ color = Color(0, 0.643137, 0, 1)
 radius = 50
 text_label = "Tutorial"
 path = "res://level/tutorial/tutorial.tscn"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -11.5
+offset_right = 61.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Secret Spreader"
+label_settings = SubResource("LabelSettings_jwexl")
+horizontal_alignment = 1

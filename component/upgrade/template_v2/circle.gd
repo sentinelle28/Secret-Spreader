@@ -27,7 +27,7 @@ func _process(_delta: float) -> void:
 	if Score.spread_coins >= get_current_cost():
 		self_modulate = Color(1, 1, 1)
 	else:
-		self_modulate = Color(0.373, 0.373, 0.373, 0.267)
+		self_modulate = Color(0.353, 0.353, 0.353, 0.714)
 		
 
 func _draw() -> void:

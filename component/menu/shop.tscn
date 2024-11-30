@@ -39,6 +39,7 @@ horizontal_alignment = 1
 [node name="Upgrade list" type="Node" parent="."]
 
 [node name="base_speed" parent="Upgrade list" instance=ExtResource("3_314o7")]
+self_modulate = Color(0.352941, 0.352941, 0.352941, 0.713726)
 position = Vector2(976, 384)
 color = Color(0, 1, 1, 1)
 radius = 50

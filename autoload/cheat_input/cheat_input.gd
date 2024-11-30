@@ -15,6 +15,9 @@ func _consol()->void:
 	
 func _check_input(text:String)->void:
 	match text:
+		"help":
+			$TextEdit.text = "IwantMoney|IamCool|Shout|SpeedyBoy|TurtleSpeed \n
+			Sunglasses|NarutoRun|InfiniteStamina"
 		"IwantMoney":
 			Score.spread_coins += 100
 			_correct_cheat()
@@ -29,6 +32,15 @@ func _check_input(text:String)->void:
 			_correct_cheat()
 		"TurtleSpeed":
 			PlayerStats.base_speed -= 50
+			_correct_cheat()
+		"Sunglasses":
+			PlayerStats.area_of_influence += 10
+			_correct_cheat()
+		"NarutoRun":
+			PlayerStats.stamina_mult += 0.5
+			_correct_cheat()
+		"InfiniteStamina":
+			PlayerStats.stamina_regen += 2
 			_correct_cheat()
 
 func _correct_cheat():

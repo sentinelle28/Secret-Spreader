@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://jx1rfb2j4dix"]
+
+[ext_resource type="Script" path="res://component/other/animated_title/animated_title.gd" id="1_teg8m"]
+
+[node name="Animated_title" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_teg8m")
+
+[node name="Timer" type="Timer" parent="."]

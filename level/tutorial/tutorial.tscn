@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://csahvhktgar1t"]
+[gd_scene load_steps=9 format=4 uid="uid://csahvhktgar1t"]
 
 [ext_resource type="PackedScene" uid="uid://b3j8k0dcido76" path="res://component/map/grass.tscn" id="1_cq70a"]
 [ext_resource type="Script" path="res://level/tutorial/tutorial.gd" id="1_qhn0g"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dfkqwanr1xlqn" path="res://component/character/player/player.tscn" id="4_61i53"]
 [ext_resource type="PackedScene" uid="uid://4qyey1cnek1f" path="res://component/character/goofy_men/goofy_men.tscn" id="5_qsxc1"]
 [ext_resource type="PackedScene" uid="uid://enqf3ok3vyvh" path="res://component/map/fence.tscn" id="6_pmk5p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7lsgi"]
+font_size = 15
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cdxy"]
 size = Vector2(142.5, 113)
@@ -27,6 +30,22 @@ position = Vector2(489, 253)
 [node name="goofy_men" parent="." instance=ExtResource("5_qsxc1")]
 position = Vector2(820, 425)
 
+[node name="Label3" type="Label" parent="goofy_men"]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -33.0
+offset_right = 34.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Free Hug"
+label_settings = SubResource("LabelSettings_7lsgi")
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -42,7 +61,7 @@ offset_bottom = 523.0
 text = "End of the tutorial"
 
 [node name="fence" parent="." instance=ExtResource("6_pmk5p")]
-tile_map_data = PackedByteArray("AAA6ABsAAAABAAEAAAA6ABwAAAADAAEAAAA6AB0AAAAAAAEAAAA6AB4AAAAAAAIAAAA7ABsAAAACAAMAAAA8ABsAAAACAAMAAAA9ABsAAAACAAMAAAA+ABsAAAACAAMAAAA/ABsAAAACAAMAAABAABsAAAACAAMAAABBABsAAAACAAMAAABCABsAAAACAAMAAABDABsAAAACAAMAAABEABsAAAADAAAAAABEABwAAAAAAAEAAABEAB0AAAAAAAEAAABEAB4AAAAAAAEAAABEAB8AAAAAAAEAAABEACAAAAAAAAIAAABEACMAAAADAAMAAABDACMAAAACAAMAAABCACMAAAACAAMAAABBACMAAAACAAMAAABAACMAAAACAAMAAAA/ACMAAAACAAMAAAA+ACMAAAACAAMAAAA9ACMAAAACAAMAAAA8ACMAAAACAAMAAAA7ACMAAAACAAMAAAA6ACMAAAABAAIAAAA6ACIAAAAAAAEAAAA6ACEAAAAAAAAAAAAyABwAAAACAAMAAAAzABwAAAACAAMAAAA0ABwAAAADAAMAAAA3ABwAAAABAAMAAAA4ABwAAAACAAMAAAA5ABwAAAACAAMAAAAxABwAAAABAAIAAAAxABsAAAAAAAEAAAAxABoAAAAAAAEAAAAxABkAAAAAAAEAAAAxABgAAAABAAAAAAAyABgAAAACAAMAAAAzABgAAAACAAMAAAA0ABgAAAACAAMAAAA1ABgAAAACAAMAAAA2ABgAAAACAAMAAAA3ABgAAAACAAMAAAA4ABgAAAACAAMAAAA5ABgAAAACAAMAAAA6ABkAAAAAAAEAAAA6ABoAAAAAAAEAAAA6ABgAAAADAAAAAAA=")
+tile_map_data = PackedByteArray("AAA6ABsAAAAAAAAAAAA6ABwAAAADAAEAAAA6AB0AAAAAAAEAAAA6AB4AAAAAAAEAAABEACMAAAADAAMAAABDACMAAAACAAMAAABCACMAAAACAAMAAABBACMAAAACAAMAAABAACMAAAACAAMAAAA/ACMAAAACAAMAAAA+ACMAAAACAAMAAAA9ACMAAAACAAMAAAA8ACMAAAACAAMAAAA7ACMAAAACAAMAAAA6ACMAAAABAAIAAAA6ACIAAAAAAAEAAAA6ACEAAAAAAAEAAAAyABwAAAACAAMAAAAzABwAAAACAAMAAAA0ABwAAAADAAMAAAA3ABwAAAABAAMAAAA4ABwAAAACAAMAAAA5ABwAAAACAAMAAAAxABwAAAABAAIAAAAxABsAAAAAAAEAAAAxABoAAAAAAAEAAAAxABkAAAAAAAEAAAAxABgAAAABAAAAAAAyABgAAAACAAMAAAAzABgAAAACAAMAAAA0ABgAAAACAAMAAAA1ABgAAAACAAMAAAA2ABgAAAACAAMAAAA3ABgAAAACAAMAAAA4ABgAAAACAAMAAAA5ABgAAAACAAMAAAA6ABgAAAADAAIAAAA6AB8AAAAAAAEAAAA6ACAAAAAAAAEAAAA6ABcAAAABAAAAAAA7ABcAAAADAAIAAAA7ABYAAAABAAAAAAA8ABYAAAADAAIAAAA8ABUAAAABAAAAAAA9ABUAAAADAAIAAAA9ABQAAAABAAAAAAA+ABQAAAADAAIAAAA+ABMAAAABAAAAAAA/ABMAAAACAAMAAABAABMAAAADAAIAAABAABIAAAAAAAAAAAA=")
 
 [node name="Label" type="Label" parent="."]
 z_index = -1
@@ -54,10 +73,12 @@ text = "arrow"
 
 [node name="Label2" type="Label" parent="."]
 z_index = -1
-offset_left = 584.0
-offset_top = 416.0
-offset_right = 630.0
-offset_bottom = 439.0
-text = "shift"
+offset_left = 560.0
+offset_top = 456.0
+offset_right = 648.0
+offset_bottom = 505.0
+text = "shift
+To run"
+horizontal_alignment = 1
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
